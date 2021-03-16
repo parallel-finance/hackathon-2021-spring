@@ -222,7 +222,7 @@ Parallel finance comes out a solution to unlock the liquidity of staked DOT with
 When the user deposit DOT to the staking pool, he will receive xDOT based on the exchange rate. The staking pool compounds the reward automatically which incentivizes the user to stake early and longer.
 
 ```
-exchangeRate = (totalCash + totalStakingRewards  - totalSlashes) / totalSupply
+exchangeRate = [(totalReserve + totalStakingRewards  - totalSlashes) / totalSupply] / (1 + Rf) ^ t
 ```
 
 After a user receives xDOT, he could use XDOT in the following scenario:
@@ -231,6 +231,8 @@ After a user receives xDOT, he could use XDOT in the following scenario:
 -   Use xDOT as collateral to borrow other assets
 -   Trade xDOT in open markets
 -   use xDOT as payment
+-   Rf: risk free rate (polkadot net staking rewards)
+-   t: number of timer periods
 
 Parallel finance uses auto-selected validators recommanded by polkadot network for now, we will implement features that allow xDOT holders to vote for specific validators.
 
